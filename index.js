@@ -49,9 +49,14 @@ app.use('/api/comment', CommentRouote);
 app.use('/api/blog-like', BlogLikeRoute);
 
 // ✅ MongoDB connection
-mongoose.connect(process.env.MONGO_URI, { dbName: 'yt-mern-blog' })
-  .then(() => console.log('✅ Database connected.'))
-  .catch(err => console.log('❌ Database connection failed.', err));
+mongoose.connect(process.env.MONGO_URI, {
+  dbName: 'akshatblog',
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('✅ Database connected.'))
+.catch(err => console.log('❌ Database connection failed.', err));
+
 
 // ✅ Start server
 app.listen(PORT, () => {
